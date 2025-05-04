@@ -10,24 +10,24 @@ namespace WeddingOrganization
 {
     public sealed partial class MainPage : Page
     {
-        private string main;
-        private string budgetType;
-        private string celebrationPlace;
+        private string guestCount = "50";
+        private string budgetType = "Базовый";
+        private string celebrationPlace = "Усадьба";
 
-        private string fabrics;
-        private string dishes;
-        private string furniture;
-        private string decor;
+        private string fabrics = "Нет";
+        private string dishes = "Нет";
+        private string furniture = "Нет";
+        private string decor = "Нет";
 
-        private string lightProducer;
-        private string show;
-        private string coverGroup;
-        private string firstDance;
-        private string firework;
-        private string fireShow;
+        private string lightProducer = "Нет";
+        private string show = "Нет";
+        private string coverGroup = "Нет";
+        private string firstDance = "Нет";
+        private string firework = "Нет";
+        private string fireShow = "Нет";
 
-        private string photoZone;
-        private string videoGraph;
+        private string photoZone = "Нет";
+        private string videoGraph = "Нет";
 
         public MainPage()
         {
@@ -48,13 +48,19 @@ namespace WeddingOrganization
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine($"{main}, {budgetType}, {celebrationPlace}, {fabrics}");
+            Debug.WriteLine($"{guestCount}, {budgetType}, {celebrationPlace}, {fabrics}");
         }
+
+        private void BudgedTypeChanged(object sender, SelectionChangedEventArgs e) =>
+            budgetType = (sender as ComboBox).SelectedValue.ToString();
+
+        private void CelebrationPlaceChanged(object sender, SelectionChangedEventArgs e) =>
+            celebrationPlace = (sender as ComboBox).SelectedValue.ToString();
     }
 
     class ResultPageArgs
     {
-        public string Main { get; set; }
+        public string GuestCount { get; set; }
         public string BudgetType { get; set; }
         public string CelebrationPlace { get; set; }
 

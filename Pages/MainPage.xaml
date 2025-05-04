@@ -38,7 +38,7 @@
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Left"/>
 
-                            <TextBox Text="50"
+                            <TextBox Text="{x:Bind guestCount, Mode=TwoWay}"
                                      VerticalAlignment="Top"
                                      HorizontalAlignment="Right"/>
                         </Grid>
@@ -59,8 +59,10 @@
                             </TextBlock>
 
                             <ComboBox SelectedIndex="0"
+                                      SelectionChanged="BudgedTypeChanged"
                                       VerticalAlignment="Top"
                                       HorizontalAlignment="Right">
+                                
                                 <x:String>Базовый</x:String>
                                 <x:String>Продвинутый</x:String>
                                 <x:String>Премиальный</x:String>
@@ -76,6 +78,7 @@
                                        HorizontalAlignment="Left"/>
 
                             <ComboBox SelectedIndex="0"
+                                      SelectionChanged="CelebrationPlaceChanged"
                                       VerticalAlignment="Center"
                                       HorizontalAlignment="Right">
                                 <x:String>Усадьба</x:String>
@@ -98,6 +101,7 @@
 
                             <muxc:RadioButtons HorizontalAlignment="Right"
                                                VerticalAlignment="Top"
+                                               SelectedItem="{x:Bind fabrics, Mode=TwoWay, TargetNullValue=Нет}"
                                                MaxColumns="2"
                                                SelectedIndex="1">
                                 <x:String>Да</x:String>
@@ -115,6 +119,7 @@
 
                             <muxc:RadioButtons HorizontalAlignment="Right"
                                                VerticalAlignment="Top"
+                                               SelectedItem="{x:Bind dishes, Mode=TwoWay, TargetNullValue=Нет}"
                                                MaxColumns="2"
                                                SelectedIndex="1">
                                 <x:String>Да</x:String>
@@ -131,7 +136,8 @@
                                        HorizontalAlignment="Left"/>
 
                             <muxc:RadioButtons HorizontalAlignment="Right"
-                                               VerticalAlignment="Top"
+                                               VerticalAlignment="Top"                  
+                                               SelectedItem="{x:Bind furniture, Mode=TwoWay, TargetNullValue=Нет}"
                                                MaxColumns="2"
                                                SelectedIndex="1">
                                 <x:String>Да</x:String>
@@ -149,6 +155,7 @@
 
                             <muxc:RadioButtons HorizontalAlignment="Right"
                                                VerticalAlignment="Top"
+                                               SelectedItem="{x:Bind decor, Mode=TwoWay, TargetNullValue=Нет}"
                                                MaxColumns="2"
                                                SelectedIndex="1">
                                 <x:String>Да</x:String>
@@ -181,6 +188,7 @@
 
                             <muxc:RadioButtons HorizontalAlignment="Right"
                                                MaxColumns="2"
+                                               SelectedItem="{x:Bind lightProducer, Mode=TwoWay, TargetNullValue=Нет}"
                                                SelectedIndex="1"
                                                VerticalAlignment="Center">
                                 <x:String>Да</x:String>
@@ -199,6 +207,7 @@
 
                             <muxc:RadioButtons HorizontalAlignment="Right"
                                                MaxColumns="2"
+                                               SelectedItem="{x:Bind show, Mode=TwoWay, TargetNullValue=Нет}" 
                                                SelectedIndex="1"
                                                VerticalAlignment="Center">
                                 <x:String>Да</x:String>
@@ -217,6 +226,7 @@
 
                             <muxc:RadioButtons HorizontalAlignment="Right"
                                                MaxColumns="2"
+                                               SelectedItem="{x:Bind coverGroup, Mode=TwoWay, TargetNullValue=Нет}"
                                                SelectedIndex="1"
                                                VerticalAlignment="Center">
                                 <x:String>Да</x:String>
@@ -235,6 +245,8 @@
 
                             <muxc:RadioButtons HorizontalAlignment="Right"
                                                MaxColumns="2"
+                                               SelectedItem="{x:Bind firstDance, Mode=TwoWay, TargetNullValue=Нет}"
+                                               
                                                SelectedIndex="1"
                                                VerticalAlignment="Center">
                                 <x:String>Да</x:String>
@@ -253,6 +265,8 @@
 
                             <muxc:RadioButtons HorizontalAlignment="Right"
                                                MaxColumns="2"
+                                               SelectedItem="{x:Bind firework, Mode=TwoWay, TargetNullValue=Нет}"
+                                               
                                                SelectedIndex="1"
                                                VerticalAlignment="Center">
                                 <x:String>Да</x:String>
@@ -271,6 +285,8 @@
 
                             <muxc:RadioButtons HorizontalAlignment="Right"
                                                MaxColumns="2"
+                                               SelectedItem="{x:Bind fireShow, Mode=TwoWay, TargetNullValue=Нет}"
+                                               
                                                SelectedIndex="1"
                                                VerticalAlignment="Center">
                                 <x:String>Да</x:String>
@@ -297,6 +313,7 @@
 
                             <muxc:RadioButtons HorizontalAlignment="Right"
                                                MaxColumns="2"
+                                               SelectedItem="{x:Bind photoZone, Mode=TwoWay, TargetNullValue=Нет}"
                                                SelectedIndex="1"
                                                VerticalAlignment="Center">
                                 <x:String>Да</x:String>
@@ -315,6 +332,7 @@
 
                             <muxc:RadioButtons HorizontalAlignment="Right"
                                                MaxColumns="2"
+                                               SelectedItem="{x:Bind videoGraph, Mode=TwoWay, TargetNullValue=Нет}"
                                                SelectedIndex="1"
                                                VerticalAlignment="Center">
                                 <x:String>Да</x:String>
@@ -326,10 +344,6 @@
                                 HorizontalAlignment="Center"
                                 Style="{StaticResource AccentButtonStyle}" 
                                 Click="ResultButton"/>
-                        
-                        <Button Content="Print values" 
-                                HorizontalAlignment="Center" 
-                                Click="Button_Click"/>
                     </StackPanel>
                 </PivotItem>
             </Pivot>
