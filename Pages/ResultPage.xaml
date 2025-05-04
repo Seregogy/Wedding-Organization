@@ -37,7 +37,7 @@
                                 <TextBlock Text="Бюджет"
                                            HorizontalAlignment="Left"/>
                                 
-                                <TextBlock Text="Базовый"
+                                <TextBlock Text="{x:Bind args.BudgetType}"
                                            HorizontalAlignment="Right"/>
                             </Grid>
                             
@@ -45,8 +45,7 @@
                                 <TextBlock Text="Кол-во гостей"
                                            HorizontalAlignment="Left"/>
                                 
-                                <TextBlock x:Name="GuestCount" 
-                                           Text="100"
+                                <TextBlock Text="{x:Bind args.GuestCount}"
                                            HorizontalAlignment="Right"/>
                             </Grid>
                         </StackPanel>
@@ -56,10 +55,10 @@
                                    HorizontalAlignment="Stretch"
                                    IsExpanded="True"
                                    HorizontalContentAlignment="Stretch">
-                        <Grid>
+                        <StackPanel Spacing="10">
                             <StackPanel x:Name="EstateDescription" 
                                         Spacing="10"
-                                        Visibility="Collapsed">
+                                        Visibility="{x:Bind estateVisibility}">
                                 <Grid>
                                     <TextBlock Text="Усадьба"
                                                HorizontalAlignment="Left"/>
@@ -84,7 +83,7 @@
                         
                             <StackPanel x:Name="RestorauntDescription" 
                                         Spacing="10"
-                                        Visibility="Collapsed">
+                                        Visibility="{x:Bind restaurantVisibility}">
                                 <Grid>
                                     <TextBlock Text="Ресторан"
                                                HorizontalAlignment="Left"/>
@@ -105,7 +104,7 @@
                                     * пробковый сбор за обслуживание алкоголя: хранение, загрузка алкоголя в ресторан, доведение до нужной температуры подачи, подготовка и натирка стеклянной посуды (до 5 единиц на каждого гостя), открытие бутылок и работа с обслуживанием гостей алкоголем во время банкета)
                                 </TextBlock>
                             </StackPanel>
-                        </Grid>
+                        </StackPanel>
 
                     </muxc:Expander>
 
@@ -124,7 +123,8 @@
                             </Grid>
                             
                             <Grid x:Name="Fabrics"
-                                  Visibility="Collapsed">
+                                  Visibility="{x:Bind args.Fabrics}">
+                                
                                 <TextBlock Text="Текстиль"
                                            HorizontalAlignment="Left"/>
 
@@ -133,7 +133,8 @@
                             </Grid>
                             
                             <Grid x:Name="Dishes"
-                                  Visibility="Collapsed">
+                                  Visibility="{x:Bind args.Dishes}">
+                                
                                 <TextBlock Text="Посуда"
                                            HorizontalAlignment="Left"/>
 
@@ -142,16 +143,16 @@
                             </Grid>
 
                             <Grid x:Name="Furniture"
-                                  Visibility="Collapsed">
+                                  Visibility="{x:Bind Furniture}">
+                                
                                 <TextBlock Text="Посуда"
                                            HorizontalAlignment="Left"/>
 
                                 <TextBlock Text="10 000 руб."
                                            HorizontalAlignment="Right"/>
                             </Grid>
-                            
-                            <Grid x:Name="AdditionalZones"
-                                  Visibility="Collapsed">
+
+                            <Grid x:Name="AdditionalZones">
                                 <TextBlock Text="Доп. зоны"
                                            HorizontalAlignment="Left"/>
 
@@ -184,7 +185,8 @@
                             </Grid>
 
                             <Grid x:Name="LightTools"
-                                  Visibility="Collapsed">
+                                  Visibility="{x:Bind args.LightProducer}">
+                                
                                 <TextBlock Text="Световое оборудование"
                                            HorizontalAlignment="Left"/>
 
@@ -193,7 +195,8 @@
                             </Grid>
 
                             <Grid x:Name="ShowProgram"
-                                  Visibility="Collapsed">
+                                  Visibility="{x:Bind args.Show}">
+                                
                                 <TextBlock Text="Световое оборудование"
                                            HorizontalAlignment="Left"/>
 
@@ -202,7 +205,8 @@
                             </Grid>
 
                             <Grid x:Name="CoverGroup"
-                                  Visibility="Collapsed">
+                                  Visibility="{x:Bind args.CoverGroup}">
+                                
                                 <TextBlock Text="Световое оборудование"
                                            HorizontalAlignment="Left"/>
 
@@ -211,7 +215,8 @@
                             </Grid>
 
                             <Grid x:Name="FirstDance"
-                                  Visibility="Collapsed">
+                                  Visibility="{x:Bind args.FirstDance}">
+                                
                                 <TextBlock Text="Постановка первого танца"
                                            HorizontalAlignment="Left"/>
 
@@ -220,7 +225,8 @@
                             </Grid>
 
                             <Grid x:Name="Firework"
-                                  Visibility="Collapsed">
+                                  Visibility="{x:Bind args.Firework}">
+                                
                                 <TextBlock Text="Световое оборудование"
                                            HorizontalAlignment="Left"/>
 
@@ -229,7 +235,8 @@
                             </Grid>
                             
                             <Grid x:Name="Fireshow"
-                                  Visibility="Collapsed">
+                                  Visibility="{x:Bind args.FireShow}">
+                                
                                 <TextBlock Text="Фаер шоу"
                                            HorizontalAlignment="Left"/>
 
@@ -269,8 +276,9 @@
                                             HorizontalAlignment="Right"/>
                             </Grid>
 
-                            <Grid x:Name="Photozone"
-                                  Visibility="Collapsed">
+                            <Grid x:Name="PhotoZone"
+                                  Visibility="{x:Bind args.PhotoZone}">
+                                
                                 <TextBlock Text="Фотозона"
                                            HorizontalAlignment="Left"/>
 
@@ -278,8 +286,9 @@
                                             HorizontalAlignment="Right"/>
                             </Grid>
 
-                            <Grid x:Name="Videograph"
-                                  Visibility="Collapsed">
+                            <Grid x:Name="VideoGraph"
+                                  Visibility="{x:Bind args.VideoGraph}">
+                                
                                 <TextBlock Text="Видеограф"
                                            HorizontalAlignment="Left"/>
 

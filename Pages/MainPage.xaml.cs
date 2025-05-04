@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using Wedding_Organization.Helpers;
 using WeddingOrganization.Pages;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
@@ -43,7 +44,29 @@ namespace WeddingOrganization
 
         private void ResultButton(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(ResultPage), null, new SlideNavigationTransitionInfo());
+            var args = new ResultPageArgs
+            {
+                GuestCount = int.Parse(guestCount),
+                BudgetType = budgetType,
+                CelebrationPlace = celebrationPlace,
+
+                Fabrics = fabrics.ToVisibility(),
+                Dishes = dishes.ToVisibility(),
+                Furniture = furniture.ToVisibility(),
+                Decor = decor.ToVisibility(),
+
+                LightProducer = lightProducer.ToVisibility(),
+                Show = show.ToVisibility(),
+                CoverGroup = coverGroup.ToVisibility(),
+                FirstDance = firstDance.ToVisibility(),
+                Firework = firework.ToVisibility(),
+                FireShow = fireShow.ToVisibility(),
+
+                PhotoZone = photoZone.ToVisibility(),
+                VideoGraph = videoGraph.ToVisibility()
+            };
+
+            Frame.Navigate(typeof(ResultPage), args, new SlideNavigationTransitionInfo());
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -60,23 +83,23 @@ namespace WeddingOrganization
 
     class ResultPageArgs
     {
-        public string GuestCount { get; set; }
+        public int GuestCount { get; set; }
         public string BudgetType { get; set; }
         public string CelebrationPlace { get; set; }
 
-        public string Fabrics { get; set; }
-        public string Dishes { get; set; }
-        public string Furniture { get; set; }
-        public string Decor {  get; set; }
+        public Visibility Fabrics { get; set; }
+        public Visibility Dishes { get; set; }
+        public Visibility Furniture { get; set; }
+        public Visibility Decor {  get; set; }
 
-        public string LightProducer { get; set; }
-        public string Show {  get; set; }
-        public string CoverGroup {  get; set; }
-        public string FirstDance {  get; set; }
-        public string Firework {  get; set; }
-        public string FireShow {  get; set; }
+        public Visibility LightProducer { get; set; }
+        public Visibility Show {  get; set; }
+        public Visibility CoverGroup {  get; set; }
+        public Visibility FirstDance {  get; set; }
+        public Visibility Firework {  get; set; }
+        public Visibility FireShow {  get; set; }
 
-        public string PhotoZone {  get; set; }
-        public string VideoGraph {  get; set; }
+        public Visibility PhotoZone {  get; set; }
+        public Visibility VideoGraph {  get; set; }
     }
 }
