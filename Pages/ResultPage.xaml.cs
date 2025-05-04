@@ -1,4 +1,6 @@
-﻿using Windows.UI.Core;
+﻿using Wedding_Organization.Helpers;
+using WeddingOrganization.ArgsData;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
@@ -13,6 +15,22 @@ namespace WeddingOrganization.Pages
         private Visibility restaurantVisibility = Visibility.Collapsed;
         private Visibility estateVisibility = Visibility.Collapsed;
 
+        private int totalCost;
+        public string TotalCost => $"~{totalCost.SplitDigits()} руб.";
+
+        private int mainCost;
+        public string MainCost => $"{mainCost.SplitDigits()} руб.";
+
+        private int decorCost;
+        public string DecorCost => $"{decorCost.SplitDigits()} руб.";
+
+        private int showCost;
+        public string ShowCost => $"{showCost.SplitDigits()} руб.";
+
+        private int additionalCost;
+        public string AdditionalCost => $"{additionalCost.SplitDigits()} руб.";
+
+
         public ResultPage()
         {
             InitializeComponent();
@@ -26,18 +44,31 @@ namespace WeddingOrganization.Pages
             base.OnNavigatedTo(e);
 
             if (e.Parameter is ResultPageArgs args)
-            {
                 this.args = args;
 
-                switch (args.CelebrationPlace)
-                {
-                    case "Ресторан":
-                        restaurantVisibility = Visibility.Visible;
-                        break;
-                    case "Усадьба":
-                        estateVisibility = Visibility.Visible;
-                        break;
-                }
+            mainCost = this.args.CalculateMain();
+            decorCost = this.args.CalculateDecor();
+            showCost = this.args.CalculateShow();
+            additionalCost = this.args.CalculateAdditional();
+
+            totalCost = this.args.CalculateTotalCost();
+            GetCelebrationPlace(this.args, ref restaurantVisibility, ref estateVisibility);
+        }
+
+        private void GetCelebrationPlace(ResultPageArgs args, ref Visibility restaurant, ref Visibility estate)
+        {
+            switch (args.CelebrationPlace)
+            {
+                case "Ресторан":
+                    restaurant = Visibility.Visible;
+                    break;
+                case "Усадьба":
+                    estate = Visibility.Visible;
+                    break;
+
+                default:
+                    restaurant = Visibility.Visible;
+                    break;
             }
         }
 

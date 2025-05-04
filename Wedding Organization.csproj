@@ -119,7 +119,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\StringToVisibilityConverter.cs" />
+    <Compile Include="ArgsData\ResultPageArgs.cs" />
+    <Compile Include="Helpers\Converter.cs" />
+    <Compile Include="Helpers\NumberDigitsSplitter.cs" />
+    <Compile Include="Helpers\ToStringConverter.cs" />
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

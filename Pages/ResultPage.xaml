@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     
     xmlns:local="using:WeddingOrganization.Pages"
+    xmlns:converter="using:WeddingOrganization.Helpers"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -15,9 +16,6 @@
                    Style="{StaticResource TitleLargeTextBlockStyle}"
                    Margin="20"/>
 
-        <TextBlock Text="Цена может отличаться от реальной*"
-                   Margin="30 0 30 0"/>
-
         <Grid Margin="25 0 25 25"
               HorizontalAlignment="Stretch"
               CornerRadius="{StaticResource OverlayCornerRadius}"
@@ -27,10 +25,13 @@
                 <StackPanel Padding="10"
                             Spacing="10">
 
-                    <muxc:Expander Header="Основное"
-                                   HorizontalAlignment="Stretch"
+                    <muxc:Expander HorizontalAlignment="Stretch"
                                    IsExpanded="True"
                                    HorizontalContentAlignment="Stretch">
+                        <muxc:Expander.Header>
+                            <TextBlock Text="Основное"
+                                       Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                        </muxc:Expander.Header>
                         
                         <StackPanel HorizontalAlignment="Stretch" Spacing="10">
                             <Grid>
@@ -48,13 +49,27 @@
                                 <TextBlock Text="{x:Bind args.GuestCount}"
                                            HorizontalAlignment="Right"/>
                             </Grid>
+
+                            <Border Height="2"
+                                    HorizontalAlignment="Stretch"
+                                    Background="{StaticResource DividerStrokeColorDefaultBrush}"/>
+
+                            <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}">
+                                <Run>Итог: </Run>
+                                <Run Text="{x:Bind MainCost}"
+                                     Foreground="{StaticResource SystemAccentColorLight1}"/>
+                            </TextBlock>
                         </StackPanel>
                     </muxc:Expander>
 
-                    <muxc:Expander Header="Площадка"
-                                   HorizontalAlignment="Stretch"
+                    <muxc:Expander HorizontalAlignment="Stretch"
                                    IsExpanded="True"
                                    HorizontalContentAlignment="Stretch">
+                        <muxc:Expander.Header>
+                            <TextBlock Text="Площадка"
+                                       Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                        </muxc:Expander.Header>
+
                         <StackPanel Spacing="10">
                             <StackPanel x:Name="EstateDescription" 
                                         Spacing="10"
@@ -79,17 +94,27 @@
                                     * сервисное обслуживание 10%<LineBreak/>
                                     * пробковый сбор за обслуживание алкоголя: хранение, загрузка алкоголя в ресторан, доведение до нужной температуры подачи, подготовка и натирка стеклянной посуды (до 5 единиц на каждого гостя), открытие бутылок и работа с обслуживанием гостей алкоголем во время банкета)<LineBreak/>
                                 </TextBlock>
+
+                                <Border Height="2"
+                                        HorizontalAlignment="Stretch"
+                                        Background="{StaticResource DividerStrokeColorDefaultBrush}"/>
+
+                                <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}">
+                                    <Run>Итог: </Run>
+                                    <Run Text="700 000 руб."
+                                        Foreground="{StaticResource SystemAccentColorLight1}"/>
+                                </TextBlock>
                             </StackPanel>
-                        
+
                             <StackPanel x:Name="RestorauntDescription" 
                                         Spacing="10"
                                         Visibility="{x:Bind restaurantVisibility}">
                                 <Grid>
                                     <TextBlock Text="Ресторан"
-                                               HorizontalAlignment="Left"/>
+                                                HorizontalAlignment="Left"/>
 
                                     <TextBlock Text="500 000 руб."
-                                               HorizontalAlignment="Right"/>
+                                                HorizontalAlignment="Right"/>
                                 </Grid>
 
                                 <Border Height="2"
@@ -103,16 +128,29 @@
                                     * сервисное обслуживание 10%<LineBreak/>
                                     * пробковый сбор за обслуживание алкоголя: хранение, загрузка алкоголя в ресторан, доведение до нужной температуры подачи, подготовка и натирка стеклянной посуды (до 5 единиц на каждого гостя), открытие бутылок и работа с обслуживанием гостей алкоголем во время банкета)
                                 </TextBlock>
+
+                                <Border Height="2"
+                                        HorizontalAlignment="Stretch"
+                                        Background="{StaticResource DividerStrokeColorDefaultBrush}"/>
+
+                                <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}">
+                                    <Run>Итог: </Run>
+                                    <Run Text="500 000 руб."
+                                        Foreground="{StaticResource SystemAccentColorLight1}"/>
+                                </TextBlock>
                             </StackPanel>
                         </StackPanel>
 
                     </muxc:Expander>
 
-                    <muxc:Expander Header="Декор"
-                                   HorizontalAlignment="Stretch"
+                    <muxc:Expander HorizontalAlignment="Stretch"
                                    IsExpanded="True"
                                    HorizontalContentAlignment="Stretch">
-
+                        
+                        <muxc:Expander.Header>
+                            <TextBlock Text="Декор"
+                                       Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                        </muxc:Expander.Header>
                         <StackPanel Spacing="10">
                             <Grid>
                                 <TextBlock Text="Базовый декор"
@@ -145,7 +183,7 @@
                             <Grid x:Name="Furniture"
                                   Visibility="{x:Bind args.Furniture}">
                                 
-                                <TextBlock Text="Посуда"
+                                <TextBlock Text="Мебель"
                                            HorizontalAlignment="Left"/>
 
                                 <TextBlock Text="10 000 руб."
@@ -167,17 +205,30 @@
                             <TextBlock x:Name="DecorDescription" TextWrapping="WrapWholeWords">
                                 небольшие композиции в низкой вазе, свечи и подсвечники, номерок стола, оформление президиума (текстиль, центральная композиция, свечи)
                             </TextBlock>
+                            
+                            <Border Height="2"
+                                    HorizontalAlignment="Stretch"
+                                    Background="{StaticResource DividerStrokeColorDefaultBrush}"/>
+
+                            <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}">
+                                <Run>Итог: </Run>
+                                <Run Text="{x:Bind DecorCost}"
+                                     Foreground="{StaticResource SystemAccentColorLight1}"/>
+                            </TextBlock>
                         </StackPanel>
                     </muxc:Expander>
 
-                    <muxc:Expander Header="Программа вечера"
-                                   HorizontalAlignment="Stretch"
+                    <muxc:Expander HorizontalAlignment="Stretch"
                                    IsExpanded="True"
                                    HorizontalContentAlignment="Stretch">
-
+                        <muxc:Expander.Header>
+                            <TextBlock Text="Программа вечера"
+                                       Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                        </muxc:Expander.Header>
+                        
                         <StackPanel Spacing="10">
                             <Grid>
-                                <TextBlock Text="Ведущий + DJ"
+                                <TextBlock Text="Фотограф"
                                            HorizontalAlignment="Left"/>
 
                                 <TextBlock Text="100 000 руб."
@@ -197,7 +248,7 @@
                             <Grid x:Name="ShowProgram"
                                   Visibility="{x:Bind args.Show}">
                                 
-                                <TextBlock Text="Световое оборудование"
+                                <TextBlock Text="Шоу программа"
                                            HorizontalAlignment="Left"/>
 
                                 <TextBlock Text="25 000 руб."
@@ -207,7 +258,7 @@
                             <Grid x:Name="CoverGroup"
                                   Visibility="{x:Bind args.CoverGroup}">
                                 
-                                <TextBlock Text="Световое оборудование"
+                                <TextBlock Text="Кавер-группа"
                                            HorizontalAlignment="Left"/>
 
                                 <TextBlock Text="100 000 руб."
@@ -227,7 +278,7 @@
                             <Grid x:Name="Firework"
                                   Visibility="{x:Bind args.Firework}">
                                 
-                                <TextBlock Text="Световое оборудование"
+                                <TextBlock Text="Фейерверки"
                                            HorizontalAlignment="Left"/>
 
                                 <TextBlock Text="70 000 руб."
@@ -259,14 +310,28 @@
                                 * звуковое оборудование<LineBreak/>
                                 * работа в течение 6 часов<LineBreak/>
                             </TextBlock>
+
+                            <Border Height="2"
+                                    HorizontalAlignment="Stretch"
+                                    Background="{StaticResource DividerStrokeColorDefaultBrush}"/>
+
+                            <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}">
+                                <Run>Итог: </Run>
+                                <Run Text="{x:Bind ShowCost}"
+                                     Foreground="{StaticResource SystemAccentColorLight1}"/>
+                            </TextBlock>
                         </StackPanel>
                     </muxc:Expander>
 
-                    <muxc:Expander Header="Съёмка"
-                                   HorizontalAlignment="Stretch"
+                    <muxc:Expander HorizontalAlignment="Stretch"
                                    IsExpanded="True"
                                    HorizontalContentAlignment="Stretch">
-
+                        
+                        <muxc:Expander.Header>
+                            <TextBlock Text="Съёмка"
+                                       Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                        </muxc:Expander.Header>
+                        
                         <StackPanel Spacing="10">
                             <Grid>
                                 <TextBlock Text="Ведущий + DJ"
@@ -310,6 +375,17 @@
                                 * от 700 лучших фотографий<LineBreak/>
                                 * срок сдачи фотографий 3-6 месяцев<LineBreak/>
                             </TextBlock>
+
+
+                            <Border Height="2"
+                                    HorizontalAlignment="Stretch"
+                                    Background="{StaticResource DividerStrokeColorDefaultBrush}"/>
+
+                            <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}">
+                                <Run>Итог: </Run>
+                                <Run Text="{x:Bind AdditionalCost}" 
+                                     Foreground="{StaticResource SystemAccentColorLight1}"/>
+                            </TextBlock>
                         </StackPanel>
                     </muxc:Expander>
 
@@ -326,7 +402,11 @@
                             <TextBlock x:Name="ResultText"
                                        Style="{StaticResource TitleTextBlockStyle}"
                                        Foreground="{StaticResource SystemAccentColorLight1}"
-                                       Text="~1200000 руб."/>
+                                       Text="{x:Bind TotalCost}"/>
+
+                            <TextBlock Text="Цена может отличаться от реальной*"
+                                       FontSize="11"
+                                       FontWeight="Light"/>
                         </StackPanel>
 
                         <Border VerticalAlignment="Stretch"

@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
-using Wedding_Organization.Helpers;
+using WeddingOrganization.ArgsData;
+using WeddingOrganization.Helpers;
 using WeddingOrganization.Pages;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
@@ -79,27 +80,5 @@ namespace WeddingOrganization
 
         private void CelebrationPlaceChanged(object sender, SelectionChangedEventArgs e) =>
             celebrationPlace = (sender as ComboBox).SelectedValue.ToString();
-    }
-
-    class ResultPageArgs
-    {
-        public int GuestCount { get; set; }
-        public string BudgetType { get; set; }
-        public string CelebrationPlace { get; set; }
-
-        public Visibility Fabrics { get; set; }
-        public Visibility Dishes { get; set; }
-        public Visibility Furniture { get; set; }
-        public Visibility Decor {  get; set; }
-
-        public Visibility LightProducer { get; set; }
-        public Visibility Show {  get; set; }
-        public Visibility CoverGroup {  get; set; }
-        public Visibility FirstDance {  get; set; }
-        public Visibility Firework {  get; set; }
-        public Visibility FireShow {  get; set; }
-
-        public Visibility PhotoZone {  get; set; }
-        public Visibility VideoGraph {  get; set; }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using System;
 using Windows.UI.Xaml;
 
-namespace Wedding_Organization.Helpers
+namespace WeddingOrganization.Helpers
 {
-    public static class StringToVisibilityConverter
+    public static class Converter
     {
         public static Visibility ToVisibility(this string value)
         {
@@ -11,5 +11,8 @@ namespace Wedding_Organization.Helpers
 
             return Visibility.Collapsed;
         }
+
+        public static bool ToBoolean(this Visibility value) =>
+            value is Visibility.Visible;
     }
 }
