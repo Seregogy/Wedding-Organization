@@ -1,0 +1,347 @@
+﻿<Page
+    x:Class="WeddingOrganization.Pages.ResultPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    
+    xmlns:local="using:WeddingOrganization.Pages"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Spacing="5" Width="1000">
+        <TextBlock Text="Стоимость Вашей свадьбы"
+                   Style="{StaticResource TitleLargeTextBlockStyle}"
+                   Margin="20"/>
+
+        <TextBlock Text="Цена может отличаться от реальной*"
+                   Margin="30 0 30 0"/>
+
+        <Grid Margin="25 0 25 25"
+              HorizontalAlignment="Stretch"
+              CornerRadius="{StaticResource OverlayCornerRadius}"
+              Background="{StaticResource CardBackgroundFillColorDefaultBrush}">
+
+            <ScrollViewer Height="900">
+                <StackPanel Padding="10"
+                            Spacing="10">
+
+                    <muxc:Expander Header="Основное"
+                                   HorizontalAlignment="Stretch"
+                                   IsExpanded="True"
+                                   HorizontalContentAlignment="Stretch">
+                        
+                        <StackPanel HorizontalAlignment="Stretch" Spacing="10">
+                            <Grid>
+                                <TextBlock Text="Бюджет"
+                                           HorizontalAlignment="Left"/>
+                                
+                                <TextBlock Text="Базовый"
+                                           HorizontalAlignment="Right"/>
+                            </Grid>
+                            
+                            <Grid>
+                                <TextBlock Text="Кол-во гостей"
+                                           HorizontalAlignment="Left"/>
+                                
+                                <TextBlock x:Name="GuestCount" 
+                                           Text="100"
+                                           HorizontalAlignment="Right"/>
+                            </Grid>
+                        </StackPanel>
+                    </muxc:Expander>
+
+                    <muxc:Expander Header="Площадка"
+                                   HorizontalAlignment="Stretch"
+                                   IsExpanded="True"
+                                   HorizontalContentAlignment="Stretch">
+                        <Grid>
+                            <StackPanel x:Name="EstateDescription" 
+                                        Spacing="10"
+                                        Visibility="Collapsed">
+                                <Grid>
+                                    <TextBlock Text="Усадьба"
+                                               HorizontalAlignment="Left"/>
+
+                                    <TextBlock Text="700 000 руб."
+                                               HorizontalAlignment="Right"/>
+                                </Grid>
+
+                                <Border Height="2"
+                                        HorizontalAlignment="Stretch"
+                                        Background="{StaticResource DividerStrokeColorDefaultBrush}"/>
+
+                                <TextBlock TextWrapping="WrapWholeWords">
+                                    свадебный банкет в усадьбе или особняке в Москве или Подмосковье (без алкоголя) <LineBreak/>
+
+                                    * аренда особняка или усадьбы<LineBreak/>
+                                    * свадебный гала ужин: фуршет + меню + безалкогольные напитки. Чек ужина зависит от количества и стоимости выбранных позиций меню<LineBreak/>
+                                    * сервисное обслуживание 10%<LineBreak/>
+                                    * пробковый сбор за обслуживание алкоголя: хранение, загрузка алкоголя в ресторан, доведение до нужной температуры подачи, подготовка и натирка стеклянной посуды (до 5 единиц на каждого гостя), открытие бутылок и работа с обслуживанием гостей алкоголем во время банкета)<LineBreak/>
+                                </TextBlock>
+                            </StackPanel>
+                        
+                            <StackPanel x:Name="RestorauntDescription" 
+                                        Spacing="10"
+                                        Visibility="Collapsed">
+                                <Grid>
+                                    <TextBlock Text="Ресторан"
+                                               HorizontalAlignment="Left"/>
+
+                                    <TextBlock Text="500 000 руб."
+                                               HorizontalAlignment="Right"/>
+                                </Grid>
+
+                                <Border Height="2"
+                                        HorizontalAlignment="Stretch"
+                                        Background="{StaticResource DividerStrokeColorDefaultBrush}"/>
+
+                                <TextBlock TextWrapping="WrapWholeWords">
+                                    свадебный банкет в ресторане или банкетном зале в Москве или Подмосковье (без алкоголя):<LineBreak/>
+                                    <LineBreak/>
+                                    * свадебный гала ужин: фуршет + меню + безалкогольные напитки. Чек ужина зависит от количества и стоимости выбранных позиций меню<LineBreak/>
+                                    * сервисное обслуживание 10%<LineBreak/>
+                                    * пробковый сбор за обслуживание алкоголя: хранение, загрузка алкоголя в ресторан, доведение до нужной температуры подачи, подготовка и натирка стеклянной посуды (до 5 единиц на каждого гостя), открытие бутылок и работа с обслуживанием гостей алкоголем во время банкета)
+                                </TextBlock>
+                            </StackPanel>
+                        </Grid>
+
+                    </muxc:Expander>
+
+                    <muxc:Expander Header="Декор"
+                                   HorizontalAlignment="Stretch"
+                                   IsExpanded="True"
+                                   HorizontalContentAlignment="Stretch">
+
+                        <StackPanel Spacing="10">
+                            <Grid>
+                                <TextBlock Text="Базовый декор"
+                                           HorizontalAlignment="Left"/>
+
+                                <TextBlock Text="210 000 руб."
+                                           HorizontalAlignment="Right"/>
+                            </Grid>
+                            
+                            <Grid x:Name="Fabrics"
+                                  Visibility="Collapsed">
+                                <TextBlock Text="Текстиль"
+                                           HorizontalAlignment="Left"/>
+
+                                <TextBlock Text="10 000 руб."
+                                           HorizontalAlignment="Right"/>
+                            </Grid>
+                            
+                            <Grid x:Name="Dishes"
+                                  Visibility="Collapsed">
+                                <TextBlock Text="Посуда"
+                                           HorizontalAlignment="Left"/>
+
+                                <TextBlock Text="7 500 руб."
+                                           HorizontalAlignment="Right"/>
+                            </Grid>
+
+                            <Grid x:Name="Furniture"
+                                  Visibility="Collapsed">
+                                <TextBlock Text="Посуда"
+                                           HorizontalAlignment="Left"/>
+
+                                <TextBlock Text="10 000 руб."
+                                           HorizontalAlignment="Right"/>
+                            </Grid>
+                            
+                            <Grid x:Name="AdditionalZones"
+                                  Visibility="Collapsed">
+                                <TextBlock Text="Доп. зоны"
+                                           HorizontalAlignment="Left"/>
+
+                                <TextBlock Text="5 000 руб."
+                                           HorizontalAlignment="Right"/>
+                            </Grid>
+
+                            <Border Height="2"
+                                    HorizontalAlignment="Stretch"
+                                    Background="{StaticResource DividerStrokeColorDefaultBrush}"/>
+
+                            <TextBlock x:Name="DecorDescription" TextWrapping="WrapWholeWords">
+                                небольшие композиции в низкой вазе, свечи и подсвечники, номерок стола, оформление президиума (текстиль, центральная композиция, свечи)
+                            </TextBlock>
+                        </StackPanel>
+                    </muxc:Expander>
+
+                    <muxc:Expander Header="Программа вечера"
+                                   HorizontalAlignment="Stretch"
+                                   IsExpanded="True"
+                                   HorizontalContentAlignment="Stretch">
+
+                        <StackPanel Spacing="10">
+                            <Grid>
+                                <TextBlock Text="Ведущий + DJ"
+                                           HorizontalAlignment="Left"/>
+
+                                <TextBlock Text="100 000 руб."
+                                           HorizontalAlignment="Right"/>
+                            </Grid>
+
+                            <Grid x:Name="LightTools"
+                                  Visibility="Collapsed">
+                                <TextBlock Text="Световое оборудование"
+                                           HorizontalAlignment="Left"/>
+
+                                <TextBlock Text="80 000 руб."
+                                           HorizontalAlignment="Right"/>
+                            </Grid>
+
+                            <Grid x:Name="ShowProgram"
+                                  Visibility="Collapsed">
+                                <TextBlock Text="Световое оборудование"
+                                           HorizontalAlignment="Left"/>
+
+                                <TextBlock Text="25 000 руб."
+                                           HorizontalAlignment="Right"/>
+                            </Grid>
+
+                            <Grid x:Name="CoverGroup"
+                                  Visibility="Collapsed">
+                                <TextBlock Text="Световое оборудование"
+                                           HorizontalAlignment="Left"/>
+
+                                <TextBlock Text="100 000 руб."
+                                           HorizontalAlignment="Right"/>
+                            </Grid>
+
+                            <Grid x:Name="FirstDance"
+                                  Visibility="Collapsed">
+                                <TextBlock Text="Постановка первого танца"
+                                           HorizontalAlignment="Left"/>
+
+                                <TextBlock Text="10 000 руб."
+                                           HorizontalAlignment="Right"/>
+                            </Grid>
+
+                            <Grid x:Name="Firework"
+                                  Visibility="Collapsed">
+                                <TextBlock Text="Световое оборудование"
+                                           HorizontalAlignment="Left"/>
+
+                                <TextBlock Text="70 000 руб."
+                                           HorizontalAlignment="Right"/>
+                            </Grid>
+                            
+                            <Grid x:Name="Fireshow"
+                                  Visibility="Collapsed">
+                                <TextBlock Text="Фаер шоу"
+                                           HorizontalAlignment="Left"/>
+
+                                <TextBlock Text="70 000 руб."
+                                           HorizontalAlignment="Right"/>
+                            </Grid>
+
+                            <Border Height="2"
+                                    HorizontalAlignment="Stretch"
+                                    Background="{StaticResource DividerStrokeColorDefaultBrush}"/>
+
+                            <TextBlock TextWrapping="WrapWholeWords">
+                                Ведущий:<LineBreak/>
+                                * опыт от 5 лет<LineBreak/>
+                                * ведение праздника в течение 5 часов<LineBreak/>
+                                * индивидуальная программа вечера<LineBreak/>
+                                <LineBreak/>
+                                DJ:<LineBreak/>
+                                * согласование плей-листа<LineBreak/>
+                                * звуковое оборудование<LineBreak/>
+                                * работа в течение 6 часов<LineBreak/>
+                            </TextBlock>
+                        </StackPanel>
+                    </muxc:Expander>
+
+                    <muxc:Expander Header="Съёмка"
+                                   HorizontalAlignment="Stretch"
+                                   IsExpanded="True"
+                                   HorizontalContentAlignment="Stretch">
+
+                        <StackPanel Spacing="10">
+                            <Grid>
+                                <TextBlock Text="Ведущий + DJ"
+                                           HorizontalAlignment="Left"/>
+
+                                <TextBlock Text="100 000 руб."
+                                            HorizontalAlignment="Right"/>
+                            </Grid>
+
+                            <Grid x:Name="Photozone"
+                                  Visibility="Collapsed">
+                                <TextBlock Text="Фотозона"
+                                           HorizontalAlignment="Left"/>
+
+                                <TextBlock Text="30 000 руб."
+                                            HorizontalAlignment="Right"/>
+                            </Grid>
+
+                            <Grid x:Name="Videograph"
+                                  Visibility="Collapsed">
+                                <TextBlock Text="Видеограф"
+                                           HorizontalAlignment="Left"/>
+
+                                <TextBlock Text="80 000 руб."
+                                            HorizontalAlignment="Right"/>
+                            </Grid>
+
+                            <Border Height="2"
+                                    HorizontalAlignment="Stretch"
+                                    Background="{StaticResource DividerStrokeColorDefaultBrush}"/>
+
+                            <TextBlock TextWrapping="WrapWholeWords">
+                                * опыт от 5 лет<LineBreak/>
+                                * съемка в течение 10 часов<LineBreak/>
+                                * классический стиль съемки<LineBreak/>
+                                <LineBreak/>
+                                Результат<LineBreak/>
+                                * авторская обработка<LineBreak/>
+                                * от 700 лучших фотографий<LineBreak/>
+                                * срок сдачи фотографий 3-6 месяцев<LineBreak/>
+                            </TextBlock>
+                        </StackPanel>
+                    </muxc:Expander>
+
+                    <StackPanel Orientation="Horizontal"
+                                Spacing="16"
+                                Background="{StaticResource CardBackgroundFillColorDefaultBrush}"
+                                CornerRadius="{StaticResource ControlCornerRadius}"
+                                Padding="16">
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="ИТОГ:"
+                                       Style="{StaticResource TitleLargeTextBlockStyle}"/>
+
+                            <TextBlock x:Name="ResultText"
+                                       Style="{StaticResource TitleTextBlockStyle}"
+                                       Foreground="{StaticResource SystemAccentColorLight1}"
+                                       Text="~1200000 руб."/>
+                        </StackPanel>
+
+                        <Border VerticalAlignment="Stretch"
+                                Width="2"
+                                Background="{StaticResource DividerStrokeColorDefaultBrush}"/>
+
+                        <RichTextBlock Width="400">
+                            <Paragraph FontSize="11"
+                                       FontWeight="Light">
+                                Стоимость формируется:<LineBreak/>
+                                <LineBreak/>
+                                * организатор свадьбы на все время подготовки<LineBreak/>
+                                * свадебный менеджмент: ведение списка всех организационных дел, планирование тайминга
+                                 свадебного дня, подбор мест для прогулки, помощь в составлении меню, расчет
+                                 алкоголя, зонирование банкетного зала и расстановка столов, бронирование номеров и
+                                 заказ такси для гостей, покупки/заказы по вашей просьбе и т.д.<LineBreak/>
+                                * координация в день праздника: 1 свадебный распорядитель на банкете<LineBreak/>
+                                * круглосуточный онлайн доступ ко всей информации по организации свадьбы<LineBreak/>
+                                * решение финансово-договорных отношений с подрядчиками<LineBreak/>
+                            </Paragraph>
+                        </RichTextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </StackPanel>
+</Page>

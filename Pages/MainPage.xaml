@@ -1,0 +1,339 @@
+﻿<Page
+    x:Class="WeddingOrganization.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:local="using:WeddingOrganization"
+    
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
+
+    <StackPanel Spacing="5" Width="1000">
+        <TextBlock Text="Свадебный калькулятор"
+                   Style="{StaticResource TitleLargeTextBlockStyle}"
+                   Margin="20"/>
+
+        <TextBlock Text="Заполните все поля и мы рассчитаем стоимость вашей свадьбы"
+                   Margin="30 0 30 0"/>
+        
+        <Frame HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Margin="25 0 25 25"
+                CornerRadius="{StaticResource OverlayCornerRadius}"
+                Background="{StaticResource CardBackgroundFillColorDefaultBrush}">
+            
+            <Pivot MinHeight="900">
+                <PivotItem Header="Основные">
+                    <StackPanel Spacing="10"
+                                Margin="10">
+
+                        <Grid Background="{StaticResource CardBackgroundFillColorSecondaryBrush}"
+                              Padding="15"
+                              CornerRadius="{StaticResource ControlCornerRadius}">
+
+                            <TextBlock Text="Сколько гостей на свадьбу вы приглашаете?"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"/>
+
+                            <TextBox Text="50"
+                                     VerticalAlignment="Top"
+                                     HorizontalAlignment="Right"/>
+                        </Grid>
+
+                        <Grid Background="{StaticResource CardBackgroundFillColorSecondaryBrush}"
+                              Padding="15"
+                              CornerRadius="{StaticResource ControlCornerRadius}">
+
+                            <TextBlock VerticalAlignment="Center"
+                                       HorizontalAlignment="Left">
+                                            Расскажите нам, пожалуйста, о бюджете вашей свадьбы<LineBreak/>
+                                            Базовый<LineBreak/>
+                                            Для тех, кто готов к компромиссам и кому важно получить качество при минимальном свадебном бюджете<LineBreak/>
+                                            Продвинутый<LineBreak/>
+                                            Для тех, кто привык к высокому сервису и ищет оптимальное соотношение цены и качества<LineBreak/>
+                                            Премиальный<LineBreak/>
+                                            Для тех, кто любит все самое лучшее и не приемлет компромиссов"
+                            </TextBlock>
+
+                            <ComboBox SelectedIndex="0"
+                                      VerticalAlignment="Top"
+                                      HorizontalAlignment="Right">
+                                <x:String>Базовый</x:String>
+                                <x:String>Продвинутый</x:String>
+                                <x:String>Премиальный</x:String>
+                            </ComboBox>
+                        </Grid>
+
+                        <Grid Background="{StaticResource CardBackgroundFillColorSecondaryBrush}"
+                              Padding="15"
+                              CornerRadius="{StaticResource ControlCornerRadius}">
+
+                            <TextBlock Text="Где вы планируете провести гала-ужин?"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"/>
+
+                            <ComboBox SelectedIndex="0"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Right">
+                                <x:String>Усадьба</x:String>
+                                <x:String>Ресторан</x:String>
+                            </ComboBox>
+                        </Grid>
+                    </StackPanel>
+                </PivotItem>
+
+                <PivotItem Header="Декор">
+                    <StackPanel Spacing="10"
+                                Margin="10">
+                        <Grid Background="{StaticResource CardBackgroundFillColorSecondaryBrush}"
+                              Padding="15"
+                              CornerRadius="{StaticResource ControlCornerRadius}">
+
+                            <TextBlock Text="Нужен ли вам цветной текстиль (скатерти, салфетки) в оформлении?"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"/>
+
+                            <muxc:RadioButtons HorizontalAlignment="Right"
+                                               VerticalAlignment="Top"
+                                               MaxColumns="2"
+                                               SelectedIndex="1">
+                                <x:String>Да</x:String>
+                                <x:String>Нет</x:String>
+                            </muxc:RadioButtons>
+                        </Grid>
+
+                        <Grid Background="{StaticResource CardBackgroundFillColorSecondaryBrush}"
+                              Padding="15"
+                              CornerRadius="{StaticResource ControlCornerRadius}">
+
+                            <TextBlock Text="Интересна ли вам посуда (бокалы, подстановочные тарелки) под стиль свадьбы?"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"/>
+
+                            <muxc:RadioButtons HorizontalAlignment="Right"
+                                               VerticalAlignment="Top"
+                                               MaxColumns="2"
+                                               SelectedIndex="1">
+                                <x:String>Да</x:String>
+                                <x:String>Нет</x:String>
+                            </muxc:RadioButtons>
+                        </Grid>
+
+                        <Grid Background="{StaticResource CardBackgroundFillColorSecondaryBrush}"
+                              Padding="15"
+                              CornerRadius="{StaticResource ControlCornerRadius}">
+
+                            <TextBlock Text="Хотите ли вы дополнить украшение гала-ужина оригинальными стульями?"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"/>
+
+                            <muxc:RadioButtons HorizontalAlignment="Right"
+                                               VerticalAlignment="Top"
+                                               MaxColumns="2"
+                                               SelectedIndex="1">
+                                <x:String>Да</x:String>
+                                <x:String>Нет</x:String>
+                            </muxc:RadioButtons>
+                        </Grid>
+
+                        <Grid Background="{StaticResource CardBackgroundFillColorSecondaryBrush}"
+                              Padding="15"
+                              CornerRadius="{StaticResource ControlCornerRadius}">
+
+                            <TextBlock Text="Планируете ли вы декорировать фуршет?"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"/>
+
+                            <muxc:RadioButtons HorizontalAlignment="Right"
+                                               VerticalAlignment="Top"
+                                               MaxColumns="2"
+                                               SelectedIndex="1">
+                                <x:String>Да</x:String>
+                                <x:String>Нет</x:String>
+                            </muxc:RadioButtons>
+                        </Grid>
+
+
+                    </StackPanel>
+
+
+                </PivotItem>
+
+                <PivotItem Header="Программа вечера">
+                    <StackPanel Spacing="10"
+                                Margin="10">
+
+                        <Grid Background="{StaticResource CardBackgroundFillColorSecondaryBrush}"
+                              Padding="15"
+                              CornerRadius="{StaticResource ControlCornerRadius}">
+
+                            <TextBlock VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       Width="500"
+                                       TextWrapping="WrapWholeWords">
+                                Рекомендуем включить в бюджет светорежиссера и профессиональное световое оборудование, которое:<LineBreak/>
+                                * усилит качество фото- и видеосъемки<LineBreak/>
+                                * будет управлять настроением гостей и атмосферой праздника
+                            </TextBlock>
+
+                            <muxc:RadioButtons HorizontalAlignment="Right"
+                                               MaxColumns="2"
+                                               SelectedIndex="1"
+                                               VerticalAlignment="Center">
+                                <x:String>Да</x:String>
+                                <x:String>Нет</x:String>
+                            </muxc:RadioButtons>
+                        </Grid>
+
+                        <Grid Background="{StaticResource CardBackgroundFillColorSecondaryBrush}"
+                              Padding="15"
+                              CornerRadius="{StaticResource ControlCornerRadius}">
+                            <TextBlock Text="Хотите ли вы дополнить программу банкета шоу-программой?"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       Width="500"
+                                       TextWrapping="WrapWholeWords"/>
+
+                            <muxc:RadioButtons HorizontalAlignment="Right"
+                                               MaxColumns="2"
+                                               SelectedIndex="1"
+                                               VerticalAlignment="Center">
+                                <x:String>Да</x:String>
+                                <x:String>Нет</x:String>
+                            </muxc:RadioButtons>
+                        </Grid>
+
+                        <Grid Background="{StaticResource CardBackgroundFillColorSecondaryBrush}"
+                              Padding="15"
+                              CornerRadius="{StaticResource ControlCornerRadius}">
+                            <TextBlock Text="Как вы смотрите на то, чтобы пригласить кавер-группу и танцевать под живую музыку?"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       Width="500"
+                                       TextWrapping="WrapWholeWords"/>
+
+                            <muxc:RadioButtons HorizontalAlignment="Right"
+                                               MaxColumns="2"
+                                               SelectedIndex="1"
+                                               VerticalAlignment="Center">
+                                <x:String>Да</x:String>
+                                <x:String>Нет</x:String>
+                            </muxc:RadioButtons>
+                        </Grid>
+
+                        <Grid Background="{StaticResource CardBackgroundFillColorSecondaryBrush}"
+                              Padding="15"
+                              CornerRadius="{StaticResource ControlCornerRadius}">
+                            <TextBlock Text="Вы планируете постановочный первый танец?"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       Width="500"
+                                       TextWrapping="WrapWholeWords"/>
+
+                            <muxc:RadioButtons HorizontalAlignment="Right"
+                                               MaxColumns="2"
+                                               SelectedIndex="1"
+                                               VerticalAlignment="Center">
+                                <x:String>Да</x:String>
+                                <x:String>Нет</x:String>
+                            </muxc:RadioButtons>
+                        </Grid>
+
+                        <Grid Background="{StaticResource CardBackgroundFillColorSecondaryBrush}"
+                              Padding="15"
+                              CornerRadius="{StaticResource ControlCornerRadius}">
+                            <TextBlock Text="Хотите ли вы фейерверк?"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       Width="500"
+                                       TextWrapping="WrapWholeWords"/>
+
+                            <muxc:RadioButtons HorizontalAlignment="Right"
+                                               MaxColumns="2"
+                                               SelectedIndex="1"
+                                               VerticalAlignment="Center">
+                                <x:String>Да</x:String>
+                                <x:String>Нет</x:String>
+                            </muxc:RadioButtons>
+                        </Grid>
+
+                        <Grid Background="{StaticResource CardBackgroundFillColorSecondaryBrush}"
+                              Padding="15"
+                              CornerRadius="{StaticResource ControlCornerRadius}">
+                            <TextBlock Text="Интересно ли вам посмотреть фаер шоу?"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       Width="500"
+                                       TextWrapping="WrapWholeWords"/>
+
+                            <muxc:RadioButtons HorizontalAlignment="Right"
+                                               MaxColumns="2"
+                                               SelectedIndex="1"
+                                               VerticalAlignment="Center">
+                                <x:String>Да</x:String>
+                                <x:String>Нет</x:String>
+                            </muxc:RadioButtons>
+                        </Grid>
+
+                    </StackPanel>
+                </PivotItem>
+
+                <PivotItem Header="Дополнительно">
+                    <StackPanel Spacing="10"
+                                Margin="10">
+
+                        <Grid Background="{StaticResource CardBackgroundFillColorSecondaryBrush}"
+                              Padding="15"
+                              CornerRadius="{StaticResource ControlCornerRadius}">
+
+                            <TextBlock Text="Как насчет добавить в программу развлечений гостей фотозону с реквизитом?"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       Width="700"
+                                       TextWrapping="WrapWholeWords"/>
+
+                            <muxc:RadioButtons HorizontalAlignment="Right"
+                                               MaxColumns="2"
+                                               SelectedIndex="1"
+                                               VerticalAlignment="Center">
+                                <x:String>Да</x:String>
+                                <x:String>Нет</x:String>
+                            </muxc:RadioButtons>
+                        </Grid>
+
+                        <Grid Background="{StaticResource CardBackgroundFillColorSecondaryBrush}"
+                              Padding="15"
+                              CornerRadius="{StaticResource ControlCornerRadius}">
+                            <TextBlock Text="Должен ли снимать вашу свадьбу видеограф?"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       Width="500"
+                                       TextWrapping="WrapWholeWords"/>
+
+                            <muxc:RadioButtons HorizontalAlignment="Right"
+                                               MaxColumns="2"
+                                               SelectedIndex="1"
+                                               VerticalAlignment="Center">
+                                <x:String>Да</x:String>
+                                <x:String>Нет</x:String>
+                            </muxc:RadioButtons>
+                        </Grid>
+
+                        <Button Content="Рассчитать стоимость" 
+                                HorizontalAlignment="Center"
+                                Style="{StaticResource AccentButtonStyle}" 
+                                Click="ResultButton"/>
+                        
+                        <Button Content="Print values" 
+                                HorizontalAlignment="Center" 
+                                Click="Button_Click"/>
+                    </StackPanel>
+                </PivotItem>
+            </Pivot>
+
+        </Frame>
+    </StackPanel>
+</Page>
